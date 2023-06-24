@@ -49,9 +49,42 @@ table {
 * {
     box-sizing: border-box;
     outline: red dashed 1px;
+	--card-color: rgba(0, 0, 0, 0.782);
 }
 body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
 	background-image: url('./photos/background.jpg');
 	background-size: cover;
 	height: 100vh;
+}
+.today {
+	display: flex;
+
+	background-color: var(--card-color);
+	width: min(800px, 80vw);
+}
+.today .left-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex: 1 0 auto;
+}
+.today .left-container .minmax {
+	display: flex;
+}
+.today .right-container {
+	flex: 2;
+}
+.today .right-container .info{
+	height: 50%;
+}
+.today .right-container .hours{
+	height: 50%;
+}
+.forecasts {
+	background-color: var(--card-color);
+	width: min(800px, 80vw);
 }
