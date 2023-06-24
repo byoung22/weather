@@ -1,7 +1,7 @@
 export class Data {
     constructor() {
         this.today = {};
-        this.forecast = {};
+        this.forecast = [{}, {}, {}];
         this.hours = [];
         this.temp = 'F'
     }
@@ -75,8 +75,6 @@ export class Data {
                 if (currentTime === sunsetTime) {this.hours[i + 1] = data.forecast.forecastday[0].astro.sunset; i++}
                 currentTime++;                          // Increment hour
             }
-
-            console.log(data);
         } catch(err) {
             throw Error(err)
         }
@@ -85,19 +83,18 @@ export class Data {
         const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
         const d = new Date();
         this.today.day = weekday[d.getDay()];
-        this.forecast = [{},{},{}];
         this.forecast[0].day = 'Today';
         this.forecast[1].day = weekday[(d.getDay() + 1 > 6) ? (d.getDay() - 6) : (d.getDay() + 1)];
         this.forecast[2].day = weekday[(d.getDay() + 2 > 6) ? (d.getDay() - 5) : (d.getDay() + 2)];
     }
 
-    fillObject(city) {
-        this.addData(city);
+    async fillObject(city) {
+        await this.addData(city);
         this.addDay();
     }
     reset() {
         this.today = {};
-        this.forecast = {};
+        this.forecast = [{}, {}, {}];
         this.hours = [];
     }
 }
