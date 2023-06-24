@@ -1,0 +1,28 @@
+{
+  "name": "weather",
+  "version": "1.0.0",
+  "description": "Basic weather app to learn API's, no secure API key until I learning servers.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byoung22/weather.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/byoung22/weather/issues"
+  },
+  "homepage": "https://github.com/byoung22/weather#readme",
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
