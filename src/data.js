@@ -11,7 +11,7 @@ export class Data {
             // Fetch data from API
             const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=a91fd93998594df68e9202550232006&q=${city}&days=3&aqi=yes`);
             const data = await response.json();
-
+            
             // Store fetched data in today
             if(this.temp === 'F') {
                 this.today.temp = data.current.temp_f;
@@ -71,8 +71,18 @@ export class Data {
                     if(this.temp === 'C') this.hours[i].temp = data.forecast.forecastday[1].hour[currentTime - 24].temp_c;
                 }
                 // Add sunset and sunrise time if the time arrives
-                if (currentTime === sunriseTime) {this.hours[i + 1] = data.forecast.forecastday[0].astro.sunrise; i++}
-                if (currentTime === sunsetTime) {this.hours[i + 1] = data.forecast.forecastday[0].astro.sunset; i++}
+                if (currentTime === sunriseTime || currentTime - 24 === sunriseTime) {
+                    this.hours[i + 1] = [];
+                    this.hours[i + 1][0] = data.forecast.forecastday[0].astro.sunrise;
+                    this.hours[i + 1][1] = 'Sunrise';
+                    i++;
+                }
+                if (currentTime === sunsetTime || currentTime - 24 === sunsetTime) {
+                    this.hours[i + 1] = [];
+                    this.hours[i + 1][0] = data.forecast.forecastday[0].astro.sunset;
+                    this.hours[i + 1][1] = 'Sunset';
+                    i++;
+                }
                 currentTime++;                          // Increment hour
             }
         } catch(err) {

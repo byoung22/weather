@@ -60,31 +60,34 @@ body {
 	background-size: cover;
 	height: 100vh;
 }
+
 .today {
 	display: flex;
-
 	background-color: var(--card-color);
-	width: min(800px, 80vw);
+	width: min(80vw, 1000px);
 }
 .today .left-container {
+	flex: 1;
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	align-items: center;
-	flex: 1 0 auto;
-}
-.today .left-container .minmax {
-	display: flex;
 }
 .today .right-container {
 	flex: 2;
+	display: flex;
+	flex-direction: column;
+	overflow: auto;
 }
-.today .right-container .info{
-	height: 50%;
+.today .right-container .info {
+	display: flex;
+	justify-content: space-evenly;
 }
-.today .right-container .hours{
-	height: 50%;
+.today .right-container .hours {
+	flex: 2;
+	display: flex;
+	overflow: auto;
 }
-.forecasts {
-	background-color: var(--card-color);
-	width: min(800px, 80vw);
+.hours::-webkit-scrollbar {
+    display: none;
 }
