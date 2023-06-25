@@ -3,175 +3,256 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 * {
-    box-sizing: border-box;
-	--card-color: rgba(0, 0, 0, 0.782);
-	font-size: 1.5rem;
-	color: white;
+  box-sizing: border-box;
+  --card-color: rgba(0, 0, 0, 0.782);
+  font-size: 1.5rem;
+  color: white;
 }
 body {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-	background-image: url('./photos/background.jpg');
-	background-size: cover;
-	height: 100vh;
-} 
+  background-image: url("./photos/background.jpg");
+  background-size: cover;
+  height: 100vh;
+}
 img {
-	height: 50px;
-	width: auto;
+  height: 50px;
+  width: auto;
 }
 .search-container {
-	margin: 5vh;
+  margin: 5vh;
 }
 .search-container input,
-.search-container button{
-	background-color: var(--card-color);
+.search-container button {
+  background-color: var(--card-color);
 }
 
 .today {
-	border-radius: 2rem;
-	padding: 1.2rem;
-	display: flex;
-	background-color: var(--card-color);
-	width: min(80vw, 1000px);
-	font-size: 1.6rem;
+  border-radius: 2rem;
+  padding: 1.2rem;
+  display: flex;
+  background-color: var(--card-color);
+  width: min(80vw, 1000px);
+  font-size: 1.6rem;
 }
 .today .left-container {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 0.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
-.today .left-container .condition img{
-	height: 5rem;
-	width: auto;
+.today .left-container .condition img {
+  height: 5rem;
+  width: auto;
 }
-.today .left-container .minmax{
-	display: flex;
-	gap: 1rem;
+.today .left-container .minmax {
+  display: flex;
+  gap: 1rem;
 }
 .today .right-container {
-	flex: 2;
-	display: flex;
-	flex-direction: column;
-	overflow: auto;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
 }
 .today .right-container .info {
-	display: flex;
-	justify-content: space-evenly;
-	padding: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
 }
-.today .right-container .info .text{
-	display: flex;
-	justify-content: center;
+.today .right-container .info .text {
+  display: flex;
+  justify-content: center;
 }
 .today .right-container .hours {
-	flex: 2;
-	display: flex;
-	overflow: auto;
+  flex: 2;
+  display: flex;
+  overflow: auto;
 }
 .hours::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
-.today .right-container .hours .card{
-	display: flex;
-	justify-content: center;
-	align-content: center;
-	flex-direction: column;
-	height: 8rem;
-	padding: 5px 1rem;
+.today .right-container .hours .card {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  height: 8rem;
+  padding: 5px 1rem;
 }
 .card .sunset-sunrise-time {
-	width: 7rem;
+  width: 7rem;
 }
 .card .hour-card-row {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 .forecasts {
-	margin: 5vh;
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-	
-	border-radius: 2rem;
-	width: min(80vw, 1000px);
-	font-size: 1.8rem;
+  margin: 5vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  border-radius: 2rem;
+  width: min(80vw, 1000px);
+  font-size: 1.8rem;
 }
 .forecasts .forecast {
-	background-color: var(--card-color);
-	border-radius: 2rem;
-	display: flex;
-	align-items: center;
+  background-color: var(--card-color);
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
 }
 .forecasts .forecast .day {
-	width: 10rem;
-	padding: 0px 1rem;
+  width: 10rem;
+  padding: 0px 1rem;
 }
 .forecasts .forecast .icon {
-	flex: 1;
+  flex: 1;
 }
 .forecasts .forecast p {
-	display: flex;
-	justify-content: center;
-	width: 9rem;
+  display: flex;
+  justify-content: center;
+  width: 9rem;
 }
 @media (max-width: 800px) {
-	.today{
-		font-size: 1.5rem;
-		flex-direction: column;
-	}
-	.today .right-container .info {
-		font-size: 1rem;
-	}
-	.forecast {
-		font-size: 1rem;
-	}
+  .today {
+    font-size: 1.5rem;
+    flex-direction: column;
+  }
+  .today .right-container .info {
+    font-size: 1rem;
+  }
+  .forecast {
+    font-size: 1rem;
+  }
 }
