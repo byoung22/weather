@@ -32,8 +32,11 @@ const uv = document.querySelector('.right-container .info .uv .text');
 // Right Container hours
 const hoursContainer = document.querySelector('.right-container .hours');
 
-let sunriseTime;                            // Outputs hour of sunrise
-let sunsetTime;                             // Outputs hour of sunset
+// Forecasts container
+const forecasts = document.querySelector('.forecasts');
+
+let sunriseTime;        // Hour of sunrise
+let sunsetTime;         // Hour of sunset
 
 function getSunsetSunrise(data) {
     sunriseTime = parseInt(data.today.sunrise.split(':')[0]);
@@ -88,7 +91,6 @@ function renderHours(hours) {
         }
         hoursContainer.appendChild(card);
     });
-    console.log(hours)
 }
 function hourScroll() {
     let startX, scrollLeft;
@@ -141,6 +143,37 @@ function renderImage(hour, condition, parent) {
     parent.appendChild(icon);
 }
 
+function renderForecasts(data) {
+    data.forEach(forecast => {
+        const card = document.createElement('p');
+        card.classList.add('forecast')
+        forecasts.appendChild(card);
+
+        const day = document.createElement('div');
+        day.classList.add('day')
+        day.textContent = forecast.day;
+        card.appendChild(day);
+
+        const icon = document.createElement('div');
+        icon.classList.add('icon')
+        renderImage(12, forecast.condition, icon);
+        card.appendChild(icon);
+
+        const low = document.createElement('p');
+        low.textContent = `L: ${forecast.mintemp}°`;
+        card.appendChild(low);
+
+        const avg = document.createElement('p');
+        avg.textContent = `Avg: ${forecast.avgtemp}°`;
+        card.appendChild(avg);
+
+        const high = document.createElement('p');
+        high.textContent = `H: ${forecast.maxtemp}°`;
+        card.appendChild(high);
+    });
+    console.log(data)
+}
+
 function reset() {
     city.textContent = '';
     temp.textContent = '';
@@ -151,6 +184,8 @@ function reset() {
     epa.textContent = '';
     humidity.textContent = '';
     uv.textContent = '';
+    hoursContainer.textContent = '';
+    forecasts.textContent = '';
 }
 
 export function renderUI(data) {
@@ -160,4 +195,5 @@ export function renderUI(data) {
     renderInfo(data.today);
     renderHours(data.hours);
     hourScroll();
+    renderForecasts(data.forecast);
 }
