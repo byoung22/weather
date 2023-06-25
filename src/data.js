@@ -54,7 +54,7 @@ export class Data {
             let sunsetTime = parseInt(data.forecast.forecastday[0].astro.sunset.split(':')[0]) + 12;    // Outputs hour of sunset
             // If time passed, use tomorrow's sunset and sunrise
             if (currentTime > sunriseTime) sunriseTime = parseInt(data.forecast.forecastday[1].astro.sunrise.split(':')[0]);
-            if (currentTime > sunsetTime) sunsetTime = parseInt(data.forecast.forecastday[1].astro.sunrise.split(':')[0]);
+            if (currentTime > sunsetTime) sunsetTime = parseInt(data.forecast.forecastday[1].astro.sunset.split(':')[0]) + 12;
 
             for(let i = 0; i < 27; i++) {
                 if(currentTime < 24) {                  // Store remaining hours of the day

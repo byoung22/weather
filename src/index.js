@@ -10,7 +10,9 @@ const city = new Data();
 
 // Initial data
 await city.fillObject('LA');
+console.log(city)
 renderUI(city)
+
 
 
 searchButton.addEventListener('click', async () => {
@@ -19,7 +21,7 @@ searchButton.addEventListener('click', async () => {
     city.reset();
     await city.fillObject(search.value);
 
+
     // Load UI after data is fetched
     renderUI(city)
-    console.log(city)
 });

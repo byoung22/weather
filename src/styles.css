@@ -50,6 +50,7 @@ table {
     box-sizing: border-box;
     outline: red dashed 1px;
 	--card-color: rgba(0, 0, 0, 0.782);
+	font-size: 1.5rem;
 }
 body {
 	display: flex;
@@ -59,12 +60,17 @@ body {
 	background-image: url('./photos/background.jpg');
 	background-size: cover;
 	height: 100vh;
+} 
+img {
+	height: 50px;
+	width: auto;
 }
 
 .today {
 	display: flex;
 	background-color: var(--card-color);
 	width: min(80vw, 1000px);
+	font-size: 1.5rem;
 }
 .today .left-container {
 	flex: 1;
@@ -72,6 +78,10 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+.today .left-container .minmax{
+	display: flex;
+	gap: 1rem;
 }
 .today .right-container {
 	flex: 2;
@@ -82,6 +92,11 @@ body {
 .today .right-container .info {
 	display: flex;
 	justify-content: space-evenly;
+	padding: 1rem;
+}
+.today .right-container .info .text{
+	display: flex;
+	justify-content: center;
 }
 .today .right-container .hours {
 	flex: 2;
@@ -90,4 +105,19 @@ body {
 }
 .hours::-webkit-scrollbar {
     display: none;
+}
+.today .right-container .hours .card{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
+	height: 8rem;
+	padding: 5px 1rem;
+}
+.card .sunset-sunrise-time {
+	width: 7rem;
+}
+.card .hour-card-row {
+	display: flex;
+	justify-content: center;
 }
